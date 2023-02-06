@@ -1,28 +1,28 @@
-import './App.css'
-import Sheet from './components/Sheet';
-import Shower from './components/Shower';
-import useSheet from './contexts/sheetContext';
-import { useEffect, } from 'react';
-
+import "./App.css";
+import Sheet from "./components/Sheet";
+import Shower from "./components/Shower";
+import useSheet from "./contexts/sheetContext";
+import { useEffect } from "react";
 
 function App() {
-  const length = 30
-  const times = 1
-  
-  const {createSheet,sheet} = useSheet()
+  const length = 30;
+  const times = 2;
 
-  useEffect(()=>{
-    createSheet(length,times)
-  },[])
+  const { createSheet, sheet } = useSheet();
 
-  if(sheet == null){
-    return <h1>Loading...</h1>
+  useEffect(() => {
+    createSheet(length, times);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (sheet == null) {
+    return <h1>Loading...</h1>;
   }
 
   return (
-    <div className=''>
-      <Shower/>
-      <Sheet/>
+    <div className="">
+      <Shower />
+      <Sheet />
     </div>
   );
 }
