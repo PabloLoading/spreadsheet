@@ -114,8 +114,8 @@ export const SheetContextProvider = ({ children }: props) => {
         }
       });
       // eslint-disable-next-line no-eval
-      const res = eval(str);
-      cell.functionValue = res;
+      const res: number = eval(str);
+      cell.functionValue = res.toFixed(2) + "";
     } catch (e) {
       cell.functionValue = "#Error#";
     }
